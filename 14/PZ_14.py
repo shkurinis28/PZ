@@ -1,4 +1,5 @@
 """
+Вариант 30
 В исходном текстовом файле(radio stations.txt) найти все домены из URL-адресов
 (например, в URL-apece http://stream.hoster.by:8081/pilotfm/audio/icecast.audio
 домен выделен полужирным).
