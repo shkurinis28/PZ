@@ -17,9 +17,29 @@ class Bank:
     def withdraw(self, amount):
        
         if amount > self.balance:
-            return False  # Недостаточно средств
+            return False  
         self.balance -= amount
         return True
 
     def __str__(self):
         return f"Баланс: {self.balance}, Процентная ставка: {self.interest_rate}%"
+
+
+if name == "__main__":
+ 
+    account = Bank(1000, 5)
+
+    print(account) 
+
+  
+    interest = account.calculate_interest()
+    print(f"Процентные начисления: {interest}")  
+
+   
+    success = account.withdraw(500)
+    if success:
+        print("Снятие прошло успешно.")
+    else:
+        print("Недостаточно средств.")
+
+    print(account)  
