@@ -4,18 +4,12 @@
 """
 
 import random
-size = 4
-matrix = [[random.randint(1, 15) for _ in range(size)] for _ in range(size)]
 
-print("Исходная матрица:")
-for row in matrix:
-    print(row)
+matrix = list(map(lambda _: list(map(lambda _: random.randint(1, 20), range(4))), range(3))
 
-for i in range(len(matrix)):
-    for j in range(len(matrix[i])):
-        if matrix[i][j] > 10:
-            matrix[i][j] = 0
+result = list(map(lambda row: list(map(lambda x: 0 if x > 10 else x, row)), matrix))
 
-print("\nМатрица после замены элементов > 10 на 0:")
-for row in matrix:
-    print(row)
+print("Сгенерированная матрица:")
+print(matrix)
+print("\nОбработанная матрица:")
+print(result)
