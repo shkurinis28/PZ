@@ -42,7 +42,6 @@ def add_trading_point(conn, этаж, площадь, наличие_конди�
     return cursor.lastrowid
 
 def get_all_trading_points(conn):
-    """ Получение всех торговых точек """
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM Торговая_точка")
     rows = cursor.fetchall()
@@ -141,26 +140,19 @@ def main():
     conn = create_connection(database)
     
     if conn is not None:
-        # Создание таблицы
         create_table(conn)
         
-        # Добавление тестовых данных
         add_sample_data(conn)
-        
-        # Демонстрация функционала
+    
         get_all_trading_points(conn)
         
-        # Поиск по этажам
         search_by_floor(conn, 1)
         search_by_floor(conn, 2)
         
-        # Точки с кондиционером
         get_points_with_air_conditioning(conn)
         
-        # Расчет дохода
         calculate_total_income(conn)
         
-        # Закрытие соединения
         conn.close()
         print(f"\n Приложение завершило работу. База данных сохранена в файле: {database}")
     else:
